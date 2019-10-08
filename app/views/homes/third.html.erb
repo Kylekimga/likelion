@@ -1,0 +1,26 @@
+<h1>세번째 페이지입니다.</h1>
+테스트하는 숫자는 <%= @num %> 이고, <%= @result%>
+<br>
+테스트하시겠습니까?
+<br>
+<script>
+function yes_click() {
+    var number = <%= @num %> // >> erb -> html : var number = 3
+	if (number%2 == 0){
+	  alert("입력하신 숫자는 짝수입니다.");
+	}else {
+	alert("입력하신 숫자는 홀수입니다.");
+	}
+  	}
+</script>
+
+<input type="button" id="yes" onclick="yes_click();" value="네" />
+<input type="button" id="no" onclick="no_click();" value="아니오" />
+<script>
+function button1_click(a) {
+	alert("입력하신 숫자는 " + a);
+}
+</script>
+<button id="button1" onclick="button1_click('<%= @result%>');">버튼1</button>
+<br>
+<a href="/homes/index"> 돌아가기 </a>
