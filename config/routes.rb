@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   get 'homes/second'
   get 'homes/third'
   get 'homes/forth'
+  get 'homes/delete/:id' => 'homes#delete'
+  get 'homes/delete_all'
+  get 'homes/edit/:id' => 'homes#edit'
+  get 'homes/update/:id' => 'homes#update'
   root 'homes#index'
 end

@@ -29,4 +29,33 @@ class HomesController < ApplicationController #controller는 먼저 만들어야
         @entry = Post.all
     end
     
+    def delete
+        that_line = Post.find(params[:id])
+        that_line.destroy
+        
+        redirect_to request.referer
+        
+        
+    end
+    
+    def delete_all
+        posts = Post.all
+        posts.each do |p|
+            p.destroy
+        end
+        redirect_to "/"
+    end
+    
+    def edit
+        @that_line = Post.find(params[:id])  #id를 넘기는 새로운 방식: url에 표시하기!! href에서 url에 표시되도록 하는 것임
+    end
+    
+    def update
+        that_line = Post.find(params[:id])
+        that_line.age = params[:num]
+        that_line.save
+        
+        redirect_to "/"
+    end
+    
 end
